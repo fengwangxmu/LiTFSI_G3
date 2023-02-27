@@ -1,0 +1,75 @@
+{
+    "model": {
+        "descriptor": {
+            "type": "se_a",
+            "sel": "auto",
+            "rcut_smth": 0.5,
+            "rcut": 6.0,
+            "_comment": "modify according your system",
+            "neuron": [
+                25,
+                50,
+                100
+            ],
+            "resnet_dt": false,
+            "axis_neuron": 16,
+            "seed": 1308767861
+        },
+        "fitting_net": {
+            "neuron": [
+                240,
+                240,
+                240
+            ],
+            "resnet_dt": true,
+            "seed": 2385403316
+        },
+        "type_map": [
+            "C",
+            "O",
+            "H",
+            "N",
+            "S",
+            "F",
+            "Li"
+        ]
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.001,
+        "decay_steps": 10000,
+        "_comment": "nope"
+    },
+    "loss": {
+        "start_pref_e": 0.02,
+        "limit_pref_e": 1,
+        "start_pref_f": 1000,
+        "limit_pref_f": 1,
+        "start_pref_v": 0,
+        "limit_pref_v": 0
+    },
+    "training": {
+        "stop_batch": 2000000,
+        "seed": 3805433063,
+        "disp_file": "lcurve.out",
+        "disp_freq": 100,
+        "save_freq": 1000,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "profiling": false,
+        "profiling_file": "timeline.json",
+        "training_data": {
+            "systems": [
+                "../system-000",
+                "../system-001",
+                "../system-002",
+                "../system-003",
+                "../system-004",
+                "../system-005"
+            ],
+            "set_prefix": "set",
+            "batch_size": 1
+        }
+    }
+}
